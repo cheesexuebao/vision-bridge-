@@ -13,12 +13,15 @@ vision-bridge 是一款为纯文本模型 AI 工具开发的多模态桥接插�
 
 ## 一键安装
 
-把下面这句话发给你的 AI 工具即可：
+把下面这句话发给你的 AI 工具即可。Just send the line below to your AI tool.
 
 ### MiMoCode
 
 ```
 帮我把 vision-bridge 插件安装到这个项目中：从插件目录复制 .mimocode 文件夹到项目根目录，然后 cd .mimocode && npm install
+```
+```
+Install the vision-bridge plugin into this project: copy the .mimocode folder from the plugin directory to the project root, then run `cd .mimocode && npm install`.
 ```
 
 ### Claude Code
@@ -26,11 +29,17 @@ vision-bridge 是一款为纯文本模型 AI 工具开发的多模态桥接插�
 ```
 帮我把 vision-bridge 插件安装到 Claude Code 中：复制 vision-core.ts 到 .claude/hooks/，复制 adapters/claude-code/vision-bridge.ts 到 .claude/hooks/，然后 cd .claude/hooks && npm install
 ```
+```
+Install the vision-bridge plugin into Claude Code: copy vision-core.ts to .claude/hooks/, copy adapters/claude-code/vision-bridge.ts to .claude/hooks/, then run `cd .claude/hooks && npm install`.
+```
 
 ### Codex
 
 ```
 帮我在项目根目录创建 CODE.md，加入规则：每次遇到图片时先执行 node /path/to/vision-bridge.mjs --image "<url>" 描述图片内容再分析。配置自动检测 VISION_API_KEY。
+```
+```
+Create a CODE.md in the project root with the rule: whenever encountering an image, first run `node /path/to/vision-bridge.mjs --image "<url>"` to describe it before analyzing. Auto-detect VISION_API_KEY from config.
 ```
 
 ### Cursor
@@ -38,17 +47,26 @@ vision-bridge 是一款为纯文本模型 AI 工具开发的多模态桥接插�
 ```
 帮我在 .cursorrules 中加一条规则：分析图片前先调用 node /path/to/vision-bridge.mjs --image "<url>" 获取文字描述
 ```
+```
+Add a rule to .cursorrules: before analyzing an image, run `node /path/to/vision-bridge.mjs --image "<url>"` to get a text description first.
+```
 
 ### Aider
 
 ```
 帮我在 .aider.conf.yml 中加预处理命令：preprocess-command: node /path/to/vision-bridge.mjs，并设置 VISION_API_KEY 环境变量
 ```
+```
+Add a preprocess command to .aider.conf.yml: `preprocess-command: node /path/to/vision-bridge.mjs`, and set the VISION_API_KEY environment variable.
+```
 
-### 通用（任意工具）
+### 通用 / Generic (any tool)
 
 ```
 安装 vision-bridge 视觉桥接工具：配置 VISION_API_KEY 环境变量为你的 API Key，然后用 node vision-bridge.mjs --image "<data-url>" 或通过管道 node vision-bridge.mjs 处理图片。支持自动检测 MiMoCode/Claude Code/Codex 的 API Key。
+```
+```
+Install the vision-bridge tool: set the VISION_API_KEY environment variable to your API key, then use `node vision-bridge.mjs --image "<data-url>"` or pipe text through `node vision-bridge.mjs`. Auto-detects API keys from MiMoCode, Claude Code, and Codex configs.
 ```
 
 ## 自动检测机制
