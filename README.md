@@ -108,6 +108,8 @@ Install the vision-bridge tool: set the VISION_API_KEY environment variable to y
 vision-core.ts             ← 核心逻辑（纯函数，零工具依赖）
     ↑ 导入
 vision-bridge.ts           ← MiMoCode 适配器（仅 ~150 行）
+auto-vision.ts             ← MiMoCode Read 拦截版适配器（图片 + Office 文档，独立实现）
+office-to-images.ps1       ← Office 文档（PPT/Excel/Word）转每页 PNG / 提取文本的脚本
 bin/vision-bridge.mjs      ← 通用 CLI 工具（任意工具可用管道调用）
 bin/describe-file.mjs      ← 本地图片文件描述
 bin/web-vision.mjs         ← 网页截图转视觉识别（SPA 兼容）
@@ -120,6 +122,8 @@ adapters/                  ← 各工具适配指南和模板
 |------|------|
 | `vision-core.ts` | 核心层：图片检测、模式识别、缓存、API 调用。可被任意 JS/TS 项目导入 |
 | `vision-bridge.ts` | MiMoCode Hook 适配器，安装到 `.mimocode/hooks/` 自动热加载 |
+| `auto-vision.ts` | MiMoCode Hook（Read 拦截版）：图片 + Office 文档（PPT/Excel/Word）自动识别描述，安装到 `.mimocode/hooks/` |
+| `office-to-images.ps1` | Office 文档转换脚本：PPT/Excel 转每页 PNG、Word 提取文本，供 auto-vision.ts 调用（Windows + Office 环境） |
 | `bin/vision-bridge.mjs` | 独立 CLI 工具，从 stdin 读文本/图片，输出描述文字 |
 | `bin/describe-file.mjs` | 本地图片文件描述：`node describe-file.mjs screenshot.png` |
 | `bin/web-vision.mjs` | 网页全页截图 + 视觉识别，解决 SPA 页面抓取问题 |

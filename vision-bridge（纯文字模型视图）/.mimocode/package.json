@@ -1,0 +1,8 @@
+{
+  "name": "vision-bridge",
+  "version": "1.0.0",
+  "description": "Vision bridge for non-multimodal models: auto-describes images via a separate vision model so text-only LLMs (e.g. DeepSeek) can understand image content.",
+  "dependencies": {
+    "@mimo-ai/plugin": "0.1.4"
+  }
+}
